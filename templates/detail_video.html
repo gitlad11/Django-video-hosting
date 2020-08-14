@@ -1,0 +1,12 @@
+﻿{% extends 'base.html' %}
+
+{% block content %}
+<div class="containter-fluid">
+    <video width="80%">
+        <source src="{{ video.video_url }}" />
+    </video>
+    <h3>{{ video.title }}</h3>
+    <p>{{ video.created_on }}</p>
+    <p>{{ video.get_total_likes }}</p>
+</div>
+{% end block %}
