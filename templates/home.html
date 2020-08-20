@@ -1,11 +1,25 @@
-﻿<!DOCTYPE html>
-
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
-<head>
-    <meta charset="utf-8" />
-    <title></title>
-</head>
-<body>
-
-</body>
-</html>
+﻿{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <div class="content">  
+        {% include 'sidebar.html' %}
+        <div class="home">
+            <div class="video">
+                <iframe width="320" height="220" src="https://www.youtube.com/embed/Eh4FDZyIZQw" frameborder="0"
+                        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            <div class="video">
+                <iframe width="320" height="220" src="https://www.youtube.com/embed/2mSVWFrmQVo" frameborder="0"
+                        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            <div class="video">
+                <iframe width="320" height="220" src="https://www.youtube.com/embed/78BnPZkTAlc" frameborder="0"
+                        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            <div class="video">
+                <iframe width="320" height="220" src="https://www.youtube.com/embed/WKj4RqZgnNI" frameborder="0"
+                        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+    </div>
+{% endblock%}

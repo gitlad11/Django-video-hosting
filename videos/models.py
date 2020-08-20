@@ -31,12 +31,13 @@ class Profile(models.Model):
 
 class Video(models.Model):
     title = models.CharField(max_length=40, blank=False , null=False)
-    preview = models.ImageField(upload_to='media')
+    preview = models.ImageField(upload_to='media', blank=True)
     name = models.CharField(max_length=50)
+    videofile = models.FileField(upload_to='uploads/')
     description = models.CharField(max_length = 400)
     created_on = models.DateTimeField(auto_now = True, blank= False, null=False)
     user = models.ForeignKey(get_user_model(),on_delete=models.CASCADE)
-    watched = models.IntegerField(default=0)
+    watched = models.ManyToManyField(User, related_name='seen')
     likes = models.ManyToManyField(User, related_name='video_users')
     #likes = GenericForeignKey(Likes)
 
@@ -44,6 +45,15 @@ class Video(models.Model):
     class Meta:
         ordering = ["created_on"]
     
+    def get_watched(self):
+        return self.watched.add(self.request.user)
+
+    def get_like(self):
+        if self.request.user not in self.likes:
+            return self.likes.add(self.request.user)
+        else:
+            return self.likes.remove(self.request.user)
+
     def __str__(self):
         return self.title
 
@@ -81,6 +91,12 @@ class Channel(models.Model):
     subscribers = models.ManyToManyField(User, related_name='channel_users')
     created_on = models.DateTimeField(auto_now = True, blank=False, null=False)
     
+    def get_subscribe(self):
+        if self.request.user not in self.subscribers:
+            return self.subscribers.add(self.request.user)
+        else:
+            return self.subscribers.remove(self.request.user)
+
     @property
     def total_subscribers(self):
         return self.subscribers.count()

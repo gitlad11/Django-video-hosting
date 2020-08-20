@@ -17,7 +17,7 @@ from django.contrib import admin
 from django.urls import path
 from django.conf.urls.static import static
 from django.conf import settings 
-from videos.views import ChannelView, RegistrationView,LoginView,HomeView,CreateChannelView,VideoDetail
+from videos.views import ChannelView, RegistrationView,LoginView,HomeView,CreateChannelView,VideoDetail, UploadVideoView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -27,6 +27,7 @@ urlpatterns = [
     path('video/<int:id>', VideoDetail.as_view()),
     path('createchannel', CreateChannelView.as_view()),
     path('<user>/channel', ChannelView.as_view()),
+    path('video/upload', UploadVideoView.as_view() )
 
 
 ] +static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)

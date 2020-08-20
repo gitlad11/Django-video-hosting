@@ -1,11 +1,22 @@
-﻿<!DOCTYPE html>
+﻿{% extends 'base.html' %}
 
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
-<head>
-    <meta charset="utf-8" />
-    <title></title>
-</head>
-<body>
+{% block content %}
+{% include 'sidebar.html' %}
+<div class="home">
+<h1>Video Uploader</h1>
+<form enctype="multipart/form-data" method="POST" action="">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Upload" />
+</form>
 
-</body>
-</html>
+<br>
+<br>
+<video width='400' controls>
+    <source src='{{ MEDIA_URL }}{{ videofile }}' type='video/mp4'>
+    Your browser does not support the video tag.
+</video>
+<br>
+<br>
+ </div>
+{% endblock %}

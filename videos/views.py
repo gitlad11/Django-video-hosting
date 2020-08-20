@@ -35,7 +35,7 @@ class RegistrationView(View):
                 return redirect('home')
             return HttpResponse('form is not valid')
             
-class LoginView(view):
+class LoginView(View):
     template_name = 'login.html'
 
     def get(self, request):
@@ -57,15 +57,19 @@ class LoginView(view):
                 return redirect('login')
         return HttpResponse('form is not valid')
 
-#class UploadVideoView(View):
-    #template_name = 'upload_video.html'
-    
-    #def get(self, request):
-        #if request.user.is_authenticated == False:
-            #return redirect('login')
+
+class UploadVideoView(View):
+    template_name = 'upload_video.html'
+     
+    def get(self, request):
+        if request.user.is_authenticated == False:
+            return redirect('login')
+        form = VideoForm()
+        return render(request, self.template_name, {'form' : form})
+
 
 class HomeView(ListView):
-    template_name = 'Home.html'
+    template_name = 'home.html'
     model = Video
     paginate_by = 20
     context_object_name = 'Video'
@@ -129,7 +133,7 @@ class VideoDetail(View):
         try:
             channel = Channel.objects.filter(owner__username = request.user).get().channel_name !=""
         except Channel.DoesNotExist:
-            channel = False
+            has_channel = False
         context = {'video' : video, 'video_url' : video_url, 'comments' : comments, 'channel' : channel}
         return render(request, self.template_name, context)
         

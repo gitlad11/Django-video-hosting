@@ -1,0 +1,157 @@
+﻿body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    background: rgb(204,203,203);
+    background: linear-gradient(90deg, rgba(204,203,203,1) 0%, rgba(255,255,255,1) 18%, rgba(255,255,255,1) 52%, rgba(251,251,251,1) 84%, rgba(210,210,210,1) 100%);
+}
+.header {
+    position: absolute;
+    display: flex;
+    top: 0px;
+    height: 100px;
+    width: 100%;
+    background-color: whitesmoke;
+    box-shadow: 0 0 10px rgba(0,0,0,0.7);
+
+}
+.search{
+    left: 10%;
+    align-content: center;
+    height: 100%;
+    width: 40%;
+    align-items: center;
+    display: flex;
+    position: relative;
+}
+.button{
+    border: none;
+    background-color: inherit;
+    border-bottom: 1px solid grey;
+    height: 35px;
+    width : 60px;
+}
+.search input{
+    font-size: 16px;
+    height: 35px;
+    width: 100%;
+    border-radius: 5px;
+    border: 1px solid gray;
+    border-bottom: 2px solid grey;
+}
+.navbar{
+    justify-content: space-between;
+    display: flex;
+    height: 100%;
+    max-width: 250px;
+    min-width: 200px;
+    position: absolute;
+    right: 10px;
+    align-content : center;
+    align-items: center;
+}
+.user-btn{
+    height: 40px;
+    width: 40px;
+    border: 1px solid grey;
+    border-radius: 60%;
+    margin: auto;
+}
+.user-btn img{
+    height: 40px;
+    width: 40px;
+}
+.button img{
+    height: 33px;
+    width: 33px;
+    margin: auto;
+}
+.icon{
+    top: 20%;
+    left: 20px;
+    height: 100%;
+    position: relative;
+    align-content: center;
+    align-items: center;
+    width: 60px;
+}
+.icon img{
+    height: 60px;
+    width: 60px;
+}
+
+
+.content {
+  
+    height: 1000px;
+   
+}
+.home {
+    align-content: center;
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0,0,0,0.7);
+    margin: auto;
+    height: 1000px;
+    width: 80%;
+    padding: 20px;
+}
+.sidebar{
+   position: absolute;
+   bottom: 0;
+   left: 0;
+
+    height: 50px;
+    width: 50px;
+    background-color: white;
+    border: 1px solid grey;
+}
+.links{
+   display: flex;
+   margin-top: 80px;
+   margin-bottom: 10px;
+   width: 100%;
+   height: 60px;
+   
+}
+.categories{
+    margin-top: 80px;
+}
+.category-image{
+    height: 30px;
+    width: 30px;
+}
+.categories a{ 
+    padding: 0px;
+    color : black;
+    text-decoration: none;
+    margin: 10px;
+    border-bottom: 1px solid black;
+}
+.categories a p {
+    text-anchor: end;
+    display: block;
+ }
+.channels {
+    overflow-x: hidden;
+    border: none;
+    border-top: 1px solid grey;
+    border-bottom: 1px solid grey;
+    height: 90%;
+    width: 300px;
+    display: flex;
+    margin: auto;
+    padding-top: 5px;
+
+}
+.channel-avatar{
+    margin: 2px;
+    height: 40px;
+    width: 40px;
+    border-radius: 60%;
+    border: 2px solid grey;
+}
+.video{
+    margin: 20px;
+    display: inline-block;
+}

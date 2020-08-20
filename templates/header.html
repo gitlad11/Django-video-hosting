@@ -1,0 +1,19 @@
+﻿{% load static %}
+    <div class="header">
+        <div class="icon">
+            <img src="{% static 'images/icons8-youtube.png' %}" />
+        </div>
+        <div class="search">
+            <input placeholder="Введите запрос" /><button class="search-btn button"><img src="{% static 'images/icons8-search.png' %}" /></button>
+        </div>
+        <div class="navbar">
+            <button class="notification-btn button"><img src="{% static 'images/icons8-notification (2).png' %}" /></button>
+            <button class="myvideo-btn button"><img src="{% static 'images/icons8-add.png' %}" /></button>
+            {% if user.is_authenticated %}
+            <a class="user-btn" href="#"><img src="{% static 'images/icons8-male-user.png' %}" /></a>
+            {% else %}
+            <a href="" type="button" class="login-btn">Войти</a>
+            {% endif %}
+        </div>
+    </div>
+
